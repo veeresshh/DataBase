@@ -1,0 +1,15 @@
+#Creating Database
+create database Jyothi;
+
+#Point to Database
+use Jyothi;
+#Create Tables
+create table UserDetails(Name varchar(20), Id int, Username varchar(20), Password varchar(20));
+describe UserDetails;
+
+insert into UserDetails value('Sam',12,'@Sam','@Sam123');
+insert into UserDetails value('Dam',13,'@Dam','@Dam123');
+insert into UserDetails value('Ram',14,'@Ram','@Ram123');
+insert into UserDetails value('Pam',15,'@Pam','@Pam123');
+
+select * from UserDetails where Name = 'Ram';
