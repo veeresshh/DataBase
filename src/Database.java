@@ -9,36 +9,33 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Database {
 
-public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-	
-      String host="localhost";
+		String host = "localhost";
 
-      String port= "3306";
+		String port = "3306";
 
-      Connection con=DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/Jyothi", "root", "Jyothi@2005");
+		Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/Jyothi", "root",
+				"Jyothi@2005");
 
-      Statement s=con.createStatement();
+		Statement s = con.createStatement();
 
-      ResultSet rs=s.executeQuery("select * from UserDetails where Name = 'Ram';");
-      
-      
-      while(rs.next())
+		ResultSet rs = s.executeQuery("select * from UserDetails where Name = 'Ram';");
 
-      {
+		while (rs.next())
 
-      WebDriver Driver = new ChromeDriver();
+		{
 
-      Driver.get("https://login.salesforce.com");
+			WebDriver Driver = new ChromeDriver();
 
-      Driver.findElement(By.xpath(".//*[@id='username']")).sendKeys(rs.getString("Username"));
+			Driver.get("https://login.salesforce.com");
 
-      Driver.findElement(By.xpath(".//*[@id='password']")).sendKeys(rs.getString("Password"));
-  
+			Driver.findElement(By.xpath(".//*[@id='username']")).sendKeys(rs.getString("Username"));
 
-      }
+			Driver.findElement(By.xpath(".//*[@id='password']")).sendKeys(rs.getString("Password"));
+
+		}
 
 	}
 
 }
-
